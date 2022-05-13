@@ -1,0 +1,57 @@
+/*
+Create a program that illuminates the green LED if the 
+counter is less than 100, illuminates the yellow LED
+if the counter is between 101 and 200 and illuminates the
+red LED if the counter is greater than 200.
+*/
+  
+int redPin = 3;
+int orangePin = 4;
+int greenPin = 5;
+int counter = 0;
+void setup()
+{
+  pinMode(redPin, OUTPUT);
+  pinMode(orangePin, OUTPUT);
+  pinMode(greenPin, OUTPUT);
+}
+
+void loop()
+{
+  if(counter == 300)
+  {
+    counter =0;
+  }
+ 
+  changeLight();
+  counter = counter + 1;
+}
+
+void changeLight()
+{
+  if(counter<100)
+  {
+    digitalWrite(redPin, LOW);
+  	digitalWrite(greenPin, HIGH);
+    delay(50);
+  }
+  else if(counter>101 && counter<200)
+  {
+    digitalWrite(greenPin, LOW);
+    digitalWrite(orangePin, HIGH);
+    delay(50);
+  }
+  else if(counter>200 && counter<300)
+  {
+   	digitalWrite(orangePin, LOW);
+    digitalWrite(redPin, HIGH);
+    delay(50);
+    
+  }
+  else
+  {
+    digitalWrite(redPin, LOW);
+    
+  }
+    
+}

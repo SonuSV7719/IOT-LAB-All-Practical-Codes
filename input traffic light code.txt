@@ -1,0 +1,56 @@
+/*
+Create a program so that when the user enters "B" the green light blinks, "g" the
+green light is illuminated "y" the yellow light is illuminated and "r" the red light is
+illuminated
+*/
+  
+int redPin = 12;
+int yellowPin = 11;
+int greenPin = 10;
+int bluePin = 9;
+char colorBlink;
+int temp;
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(redPin, OUTPUT);
+  pinMode(yellowPin, OUTPUT);
+  pinMode(greenPin, OUTPUT);
+  pinMode(bluePin, OUTPUT);
+}
+
+void loop()
+{
+  
+  Serial.println("Enter which color you want to glow\n1.Press 'r' for red\n2.Press 'y' for yellow\n3.Press 'g' for green\n4.Press 'b' for blue"); 
+  while (Serial.available()==0){}
+  colorBlink = Serial.read();
+  if (colorBlink == 'r' || colorBlink == 'R'){
+    digitalWrite(temp, LOW);
+  	digitalWrite(redPin, HIGH);
+    temp = redPin;
+  }
+  else if (colorBlink == 'y' || colorBlink == 'Y')
+  {
+    digitalWrite(temp, LOW);
+    digitalWrite(yellowPin, HIGH);
+    temp = yellowPin;
+  }
+   else if (colorBlink == 'g' || colorBlink == 'G')
+  {
+    digitalWrite(temp, LOW);
+    digitalWrite(greenPin, HIGH);
+    temp = greenPin;
+  }
+   else if (colorBlink == 'b' || colorBlink == 'B')
+  {
+    digitalWrite(temp, LOW);
+    digitalWrite(bluePin, HIGH);
+    temp = bluePin;
+  }
+  else
+  {
+    Serial.println("You Entered wrong value");
+  }
+  
+}

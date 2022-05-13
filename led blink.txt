@@ -1,0 +1,20 @@
+/*
+Title: Write a program using Arduino to control LED(One or more ON/OFF) or Blinking.
+*/
+
+void setup()
+{
+  pinMode(8, OUTPUT);
+  pinMode(7, OUTPUT);
+  pinMode(6, OUTPUT);
+}
+
+void loop()
+{
+  for (int i = 6; i<=8; i++){
+  digitalWrite(i, HIGH);
+  delay(1000);// Wait for 1000 millisecond(s)
+  digitalWrite(i, LOW);
+  delay(1000);
+  }
+}

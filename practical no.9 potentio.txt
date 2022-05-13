@@ -1,0 +1,35 @@
+/*
+Write a program to control the color of the LED by turning 3 different potentiometers. One will be read for the value of Red, 
+one for the value of Green, and one for the value of Blue. 
+*/
+
+int LEDR = 7;
+int LEDB = 6;
+int LEDG = 5;
+
+int input0 = A0;
+int input1 = A1;
+int input2 = A2;
+
+int value0;
+int value1;
+int value2;
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(LEDR, OUTPUT);
+  pinMode(LEDB, OUTPUT);
+  pinMode(LEDG, OUTPUT);
+}
+
+void loop()
+{
+  value0 = analogRead(input0);
+  value1 = analogRead(input1);
+  value2 = analogRead(input2);
+  
+  analogWrite(LEDR, (value0)/4);
+  analogWrite(LEDB, (value1)/4);
+  analogWrite(LEDG, (value2)/4);
+}
