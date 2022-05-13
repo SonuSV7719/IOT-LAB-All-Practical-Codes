@@ -1,0 +1,6 @@
+
+1. cd Adafruit_Python_DHT
+2. sudo apt-get update
+3. sudo apt-get install build-essential python-dev python-openssl
+3. sudo python setup.py install
+4. pip3 install Adafruit_Python_DHT
