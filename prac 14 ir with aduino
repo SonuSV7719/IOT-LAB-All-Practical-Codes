@@ -1,0 +1,33 @@
+// C++ code
+int out = 4;
+int outRead;
+int rLed = 2;
+
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(out, INPUT);
+  pinMode(rLed, OUTPUT);
+}
+
+void loop()
+{
+  outRead = digitalRead(out);
+  Serial.println(outRead);
+  
+  if (outRead == 1)
+  {
+    Serial.println("Object Not present!!");
+  	digitalWrite(rLed, LOW);
+  }
+  else
+  {
+    Serial.println("object Present!!");
+  	digitalWrite(rLed, HIGH);
+  }
+  delay(1000);
+  
+  
+  
+}
