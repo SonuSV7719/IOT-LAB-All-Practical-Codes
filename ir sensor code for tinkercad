@@ -1,0 +1,39 @@
+#include <IRremote.h>
+//Define Pins
+int redLed = 2;
+int out = 7;
+//IR Library stuff
+IRrecv irrecv(out);
+decode_results results;
+
+
+void setup()
+{
+  //Set Led Pins
+  pinMode(redLed, OUTPUT);
+  
+  //Enable serial usage and IR signal in
+  Serial.begin(9600);
+  Serial.println("Enabling IRin");
+  irrecv.enableIRIn(); 
+  Serial.println("Enabled IRin");
+}
+
+void loop() {
+  if (irrecv.decode(&results)) {
+    Serial.println(irrecv.decode(&results));
+    unsigned int value = results.value;  
+    Serial.println(value);
+    Serial.println("Obstacle detected or signal detected");
+    digitalWrite(redLed, HIGH);
+ 
+    irrecv.resume(); // Receive the next value
+    
+  }
+  else
+    {
+      Serial.println("Obstacle Not detected or signal Not detected");
+      digitalWrite(redLed, LOW);
+    }
+  delay(1000);
+}
